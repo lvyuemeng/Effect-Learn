@@ -1,4 +1,4 @@
-import { Console, Effect, pipe, Schedule } from "effect";
+import { Console, Effect, Either, Match, pipe, Schedule } from "effect";
 import * as NodeFS from "node:fs"
 
 // Example of Effect Apply
@@ -39,6 +39,16 @@ const res_1 = pipe(fetch_num, Effect.map(op_add))
 const res_2 = fetch_num.pipe(Effect.andThen(op_add), Effect.andThen((num) => applyDiscount(num, 5)))
 // Effect.runPromise(res_1).then(console.log)
 // Effect.runPromise(res_2).then(console.log)
+
+// Pattern Match
+
+const match_either = Match.type<Either.Either<number, string>>().pipe(
+	Match.tag("Right", (_) => _.right),
+	Match.tag("Left", (_) => _.left),
+	Match.exhaustive
+)
+
+console.log(match_either(Either.right(42)))
 
 
 
