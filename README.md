@@ -1,15 +1,8 @@
 # effect_learn
 
-To install dependencies:
-
-```bash
-bun install
-```
+A bunch of toys code in self-study of Effect.
 
 To run:
-
 ```bash
-bun run index.ts
+bun run guide/*.ts
 ```
-
-This project was created using `bun init` in bun v1.1.30. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
